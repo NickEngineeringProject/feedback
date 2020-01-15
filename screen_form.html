@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>FeedbackForm</title>
+<!--    <link rel="stylesheet" href="style.css">-->
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="response.php" method="post" name="feedback" id="feedbackForm">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="John">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="example@gmail.com">
+        <label for="phone">Phone</label>
+        <input type="tel" name="phone" id="phone" placeholder="+7 (800) 755-88-08">
+<!--        <input type="checkbox" name="check" id="checkbox" checked><label for="checkbox">Согласен на обработку персональных данных</label>-->
+        <input type="submit" value="Submit">
+    </form>
+    <div id="output"></div>
+
+<script src="request.js"></script>
+</body>
+
+</html>
