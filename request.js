@@ -8,6 +8,9 @@ form.addEventListener('submit', function (e) {
     const email = document.querySelector('#email').value.trim();
     const name = document.querySelector('#name').value.trim();
 
+    if (name === '' || phone === '' || email === '')
+        output.textContent = 'Заполните пустные поля';
+    else {
         fetch('response.php', {
             method: 'POST',
             headers: {
@@ -22,12 +25,13 @@ form.addEventListener('submit', function (e) {
 
             .then((res) => {
             return res.json().then((data) => {
-                output.textContent = data.name;
-                output.textContent = data.phone;
-                output.textContent = data.email;
+                output.textContent = `
+                    ${data.name}
+                    ${data.phone}
+                    ${data.email}
+
+                `;
             })
-        })
-        console.log(name);
-        console.log(email);
-        console.log(phone);      
+        }) 
+    }    
 });
