@@ -35,37 +35,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
         }
     }
 
-    function validate_name($name)
-    {
+    // function validate_name($name)
+    // {
 
-        if (!preg_match('/[а-яa-z]{1}[а-яa-z\d]{5,}/i', $name)) {
-            $warning = 'Имя не должно начинаться с цифры и длинна не меньше 5 символов';
-            ErrorHandler::add('name', $warning);
-        }
-    }
+    //     if (!preg_match('/[а-яa-z]{1}[а-яa-z\d]{5,}/i', $name)) {
+    //         $warning = 'Имя не должно начинаться с цифры и длинна не меньше 5 символов';
+    //         ErrorHandler::add('name', $warning);
+    //     }
+    // }
 
-    validate_name($name);
+    // validate_name($name);
 
-    function validate_email($email)
-    {
+    // function validate_email($email)
+    // {
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $warning = 'Почта должна содержать @gmail и .com например';
-            ErrorHandler::add('email', $warning);
+    //     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //         $warning = 'Почта должна содержать @gmail и .com например';
+    //         ErrorHandler::add('email', $warning);
 
-        }
-    }
+    //     }
+    // }
 
-    validate_email($email);
+    // validate_email($email);
 
-    function validate_phone($phone)
-    {
+    // function validate_phone($phone)
+    // {
 
-        if (!preg_match("/[0-9]/", $phone))
-            $warning = 'Допускаются только цифры от 0-9';
-    }
+    //     if (!preg_match("/[0-9]/", $phone))
+    //         $warning = 'Допускаются только цифры от 0-9';
+    // }
 
-    validate_phone($phone);
+    // validate_phone($phone);
 }
         echo json_encode(ErrorHandler::$errors);
 
