@@ -7,7 +7,8 @@ class ErrorHandler {
     public static $warnings = [
         'name' => "Name dotn\'t must to start with number and min length 5 symbols",
         'email' => "Email dotn't match format (example: usermail@gmail.com)",
-        'phone' => 'Allow only numbers (0-9)'
+        'phone' => 'Allow only numbers (0-9)',
+        'check' => 'Fill in the field for agreement'
     ];
 
 	public static $errors = [];
@@ -26,7 +27,12 @@ class ErrorHandler {
             case 'email':
                 self::$errors['email'] = $message;
                 break;
+
+            case 'check':
+                self::$errors['check'] = $message;
+                break;
             }
+
 
         }
 
@@ -49,6 +55,11 @@ class ErrorHandler {
                     case 'phone':
                         if (!preg_match('/^[0-9]+$/', $value))
                             self::add('phone', self::$warnings['phone']);            
+                        break;
+
+                    case 'check':
+                        if ($value === false)
+                            self::add('check', self::$warnings['check']);
                         break;
                 }
 

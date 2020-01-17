@@ -7,6 +7,7 @@ form.addEventListener('submit', function (e) {
     const name = document.querySelector('#name').value.trim();
     const phone = document.querySelector('#phone').value.trim();
     const email = document.querySelector('#email').value.trim();
+    const checkbox = document.querySelector('#check');
 
     if (name === '' || email === ''|| phone === '')
         output.textContent = 'Заполните пустные поля';
@@ -25,16 +26,19 @@ form.addEventListener('submit', function (e) {
             return res.json().then((data) => {
 
                 if (data.name === undefined)
-                    data.name = '';
+                    data.name = 'true';
                 if (data.email === undefined)
-                    data.email = '';
+                    data.email = 'true';
                 if (data.phone === undefined)
-                    data.phone = '';
+                    data.phone = 'true';
+                if (data.check === undefined)
+                    data.check = 'true';
 
                 output.textContent = `
                     ${data.name}
                     ${data.email}
                     ${data.phone}
+                    ${data.check}
 
                 `;
             })
