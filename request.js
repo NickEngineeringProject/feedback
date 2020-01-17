@@ -4,11 +4,11 @@ const output = document.getElementById('output');
 form.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    const name = document.querySelector('#name').value.trim();
     const phone = document.querySelector('#phone').value.trim();
     const email = document.querySelector('#email').value.trim();
-    const name = document.querySelector('#name').value.trim();
 
-    if (name === '' || phone === '' || email === '')
+    if (name === '' || email === ''|| phone === '')
         output.textContent = 'Заполните пустные поля';
     else {
         fetch('response.php', {
@@ -27,8 +27,8 @@ form.addEventListener('submit', function (e) {
             return res.json().then((data) => {
                 output.textContent = `
                     ${data.name}
-                    ${data.phone}
                     ${data.email}
+                    ${data.phone}
 
                 `;
             })

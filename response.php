@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
 
     ErrorHandler::validateParams([
         'name' => $data->name,
-        'phone' => $data->email,
-        'email' => $data->phone
+        'email' => $data->email,
+        'phone' => $data->phone
     ]);
 
     ErrorHandler::getErrors();
