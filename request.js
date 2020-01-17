@@ -21,10 +21,16 @@ form.addEventListener('submit', function (e) {
                 email,
                 phone
             })
-        })
-
-            .then((res) => {
+        }).then((res) => {
             return res.json().then((data) => {
+
+                if (data.name === undefined)
+                    data.name = '';
+                if (data.email === undefined)
+                    data.email = '';
+                if (data.phone === undefined)
+                    data.phone = '';
+
                 output.textContent = `
                     ${data.name}
                     ${data.email}
@@ -33,5 +39,5 @@ form.addEventListener('submit', function (e) {
                 `;
             })
         }) 
-    }    
+    }
 });

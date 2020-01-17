@@ -1,7 +1,7 @@
 <?php
 
-require './modules/ErrorHandler/ErrorHandler.php';
-use modules\ErrorHandler\ErrorHandler;
+require './modules/Handler/ErrorHandler.php';
+use modules\Handler\ErrorHandler;
 
 header('Content-type: application/json; charset: UTF-8');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\ErrorHandler;
+namespace modules\Handler;
 
 class ErrorHandler {
 
