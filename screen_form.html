@@ -18,9 +18,16 @@
         <input type="text" name="email" id="email" placeholder="example@gmail.com">
         <label for="phone">Phone</label>
         <input type="tel" name="phone" id="phone" placeholder="+7 (800) 755-88-08">
-        <input type="checkbox" name="check" id="checker" checked><label for="checkbox">Согласен на обработку персональных данных</label>
+        <input type="checkbox" name="check" id="checker" checked>
+        <label class="checkbox" for="checker">
+            Нажимая кнопку, я принимаю условия
+            <a href="#">Пользовательского соглашения</a>
+            и даю своё согласие на обработку моих персональных данных, в соответствии
+            с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных».
+        </label>
         <input type="submit" value="Submit">
     </form>
+    <br>
     <div id="output"></div>
 
 <script src="request.js"></script>

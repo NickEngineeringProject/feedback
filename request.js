@@ -10,9 +10,9 @@ form.addEventListener('submit', function (e) {
     const check = document.querySelector('#checker');
 
     if (name === '' || email === ''|| phone === '' || check === false)
-        output.textContent = 'Заполните пустные поля и примите соглашение';
+        output.textContent = 'Заполните пустные поля и подтвердите согласие на обработку персональных данных';
     else if (!check.checked)
-        output.textContent = 'Подтвердите отправку cоглашения';
+        output.textContent = 'Подтвердите согласие на обработку персональных данных';
     else {
         fetch('response.php', {
             method: 'POST',
