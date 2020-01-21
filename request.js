@@ -9,8 +9,8 @@ form.addEventListener('submit', function (e) {
     const email = document.querySelector('#email').value.trim();
     const check = document.querySelector('#checker');
 
-    if (name === '' || email === ''|| phone === '' || check === false)
-        output.textContent = 'Заполните пустные поля и подтвердите согласие на обработку персональных данных';
+    if (name === '' || email === ''|| phone === '')
+        output.textContent = 'Заполните пустные поля';
     else if (!check.checked)
         output.textContent = 'Подтвердите согласие на обработку персональных данных';
     else {
@@ -33,8 +33,7 @@ form.addEventListener('submit', function (e) {
                     data.email = '';
                 if (data.phone === undefined)
                     data.phone = '';
-                if (check.checked === true)
-                    check.checked = 'Принято';
+
 
                 output.textContent = `
                     ${data.name}
