@@ -7,10 +7,12 @@ form.addEventListener('submit', function (e) {
     const name = document.querySelector('#name').value.trim();
     const phone = document.querySelector('#phone').value.trim();
     const email = document.querySelector('#email').value.trim();
-    const checkbox = document.querySelector('#check');
+    const check = document.querySelector('#checker');
 
-    if (name === '' || email === ''|| phone === '')
-        output.textContent = 'Заполните пустные поля';
+    if (name === '' || email === ''|| phone === '' || check === false)
+        output.textContent = 'Заполните пустные поля и примите соглашение';
+    else if (!check.checked)
+        output.textContent = 'Подтвердите отправку cоглашения';
     else {
         fetch('response.php', {
             method: 'POST',
@@ -26,19 +28,18 @@ form.addEventListener('submit', function (e) {
             return res.json().then((data) => {
 
                 if (data.name === undefined)
-                    data.name = 'true';
+                    data.name = '';
                 if (data.email === undefined)
-                    data.email = 'true';
+                    data.email = '';
                 if (data.phone === undefined)
-                    data.phone = 'true';
-                if (data.check === undefined)
-                    data.check = 'true';
+                    data.phone = '';
+                if (check.checked === true)
+                    check.checked = 'Принято';
 
                 output.textContent = `
                     ${data.name}
                     ${data.email}
                     ${data.phone}
-                    ${data.check}
 
                 `;
             })
